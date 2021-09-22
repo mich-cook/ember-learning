@@ -41,7 +41,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Building
 
 * `ember build` (development)
-* `ember build --environment production` (production)
+* `npm run build` to do production build (runs `ember build --environment production`)
 
 ### Deploying
 
