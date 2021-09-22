@@ -10,4 +10,5 @@ Router.map(function () {
   this.route('scientists');
   this.route('players');
   this.route('about');
+  this.route('contact', { path: '/contact-us' });
 });
