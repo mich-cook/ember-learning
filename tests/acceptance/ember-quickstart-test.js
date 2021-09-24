@@ -1,13 +1,18 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | ember quickstart', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /ember-quickstart', async function (assert) {
-    await visit('/ember-quickstart');
+  test('visiting /', async function (assert) {
+    await visit('/');
 
-    assert.equal(currentURL(), '/ember-quickstart');
+    assert.equal(currentURL(), '/');
+    assert.dom('h1').hasText('Application Template Header');
+    assert.dom('a').hasText('About');
+    await click('a');
+
+    assert.equal(currentURL(), '/about');
   });
 });
