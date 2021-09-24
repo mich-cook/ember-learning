@@ -14,7 +14,8 @@ module('Integration | Component | person-list', function (hooks) {
 
     assert.dom(this.element).hasText('');
 
-    // Template block usage:
+    /* Template block usage:
+     * NOT IMPLEMENTED
     await render(hbs`
       <PersonList>
         template block text
@@ -22,5 +23,6 @@ module('Integration | Component | person-list', function (hooks) {
     `);
 
     assert.dom(this.element).hasText('template block text');
+    */
   });
 });
