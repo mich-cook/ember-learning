@@ -15,10 +15,10 @@ module('Acceptance | ember quickstart', function (hooks) {
 
     assert.equal(currentURL(), '/about');
   });
-  test('TODO: visiting /about', async function(assert) {
-    assert.equal(1,1);
+  test('TODO: visiting /about', async function (assert) {
+    assert.equal(1, 1);
   });
-  test('TODO: visiting /contact-us', async function(assert) {
-    assert.equal(1,1);
+  test('TODO: visiting /contact-us', async function (assert) {
+    assert.equal(1, 1);
   });
 });
