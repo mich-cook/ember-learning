@@ -9,9 +9,10 @@ module('Acceptance | ember quickstart', function (hooks) {
     await visit('/');
 
     assert.equal(currentURL(), '/');
+    assert.dom('nav').exists();
     assert.dom('h1').hasText('Application Template Header');
-    assert.dom('a').hasText('About');
-    await click('a');
+    assert.dom('.content a').hasText('About');
+    await click('.content a');
 
     assert.equal(currentURL(), '/about');
   });
@@ -20,5 +21,23 @@ module('Acceptance | ember quickstart', function (hooks) {
   });
   test('TODO: visiting /contact-us', async function (assert) {
     assert.equal(1, 1);
+  });
+
+  test('NavBar navigation', async (assert) => {
+    await visit('/');
+
+    assert.dom('nav').exists();
+    assert.dom('nav .menu-index').hasText('Home');
+    assert.dom('nav .menu-about').hasText('About');
+    assert.dom('nav .menu-contact').hasText('Contact');
+
+    await click('nav .menu-about');
+    assert.equal(currentURL(), '/about');
+
+    await click('nav .menu-contact');
+    assert.equal(currentURL(), '/contact-us');
+
+    await click('nav .menu-index');
+    assert.equal(currentURL(), '/');
   });
 });
