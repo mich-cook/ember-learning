@@ -23,7 +23,7 @@ module('Acceptance | ember quickstart', function (hooks) {
     assert.equal(1, 1);
   });
 
-  test('NavBar navigation', async (assert) => {
+  test('NavBar navigation', async function (assert) {
     await visit('/');
 
     assert.dom('nav').exists();
