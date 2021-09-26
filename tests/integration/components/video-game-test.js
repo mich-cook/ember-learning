@@ -16,5 +16,6 @@ module('Integration | Component | video-game', function (hooks) {
     assert.dom('article .detail.platform').includesText('Atari 2600');
     assert.dom('article .detail.multiplayer').includesText('Yes');
     assert.dom('article .detail.genre').includesText('Shoot');
+    assert.dom('article img').exists();
   });
 });
