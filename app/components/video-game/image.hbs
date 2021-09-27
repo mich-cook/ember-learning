@@ -1,11 +1,4 @@
-{{#if this.enlarged}}
-<div class="image large">
+<div class="image{{if this.enlarged " large"}}">
   <img ...attributes>
-  <button type="button" {{on "click" this.toggleSize}}>View Smaller</button>
+  <button type="button" {{on "click" this.toggleSize}}>View {{if this.enlarged "Smaller" "Larger"}}</button>
 </div>
-{{else}}
-<div class="image">
-  <img ...attributes>
-  <button type="button" {{on "click" this.toggleSize}}>View Larger</button>
-</div>
-{{/if}}
