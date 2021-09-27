@@ -1,24 +1,24 @@
 <article>
   <VideoGame::Image
-    src="https://upload.wikimedia.org/wikipedia/en/6/6b/Centipede-arcade-flyer.jpg"
-    alt="Arcade Flyer"
+    src="{{@game.flyerImage}}"
+    alt="{{@game.flyerDesc}}"
   />
   <div class="game">
-    <h3>Centipede</h3>
+    <h3>{{@game.title}}</h3>
     <div class="detail publisher">
-      Publisher: Atari
+      Publisher: {{@game.publisher}}
     </div>
     <div class="detail release">
-      Release: June 1981
+      Release: {{@game.releaseDate}}
     </div>
     <div class="detail platform">
-      Platform: Atari 2600
+      Platform: {{@game.platform}}
     </div>
     <div class="detail multiplayer">
-      Multiplayer: Yes
+      Multiplayer: {{if @game.multiplayer "Yes" "No"}}
     </div>
     <div class="detail genre">
-      Genre: Shooter
+      Genre: {{@game.genre}}
     </div>
   </div>
 </article>

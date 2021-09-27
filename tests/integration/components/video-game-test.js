@@ -7,7 +7,20 @@ module('Integration | Component | video-game', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders information about a game', async function (assert) {
-    await render(hbs`<VideoGame />`);
+    this.setProperties({
+      game: {
+        title: 'Centipede',
+        publisher: 'Atari',
+        flyerImage: 'https://upload.wikimedia.org/wikipedia/en/6/6b/Centipede-arcade-flyer.jpg',
+        flyerDesc: 'Arcade Flyer',
+        releaseDate: 'June 1981',
+        platform: 'Atari 2600',
+        multiplayer: true,
+        genre: 'Shooter',
+      }
+    });
+
+    await render(hbs`<VideoGame @game={{this.game}} />`);
 
     assert.dom('article').exists();
     assert.dom('article h3').hasText('Centipede');
