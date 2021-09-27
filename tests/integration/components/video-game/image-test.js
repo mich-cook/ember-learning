@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | video-game/image', function (hooks) {
@@ -24,5 +24,31 @@ module('Integration | Component | video-game/image', function (hooks) {
       .exists()
       .hasAttribute('src', src)
       .hasAttribute('alt', alt);
+  });
+
+  test('it toggles size when button is clicked', async function (assert) {
+    await render(hbs`
+      <VideoGame::Image
+        src = "/assets/images/Centipede-arcade-flyer.jpg"
+        alt = "Centipede Arcade Flyer"
+      />
+    `);
+
+    // initial state
+    assert.dom('div.image').exists();
+    assert.dom('div.image').doesNotHaveClass('large');
+    assert.dom('button').hasText('View Larger');
+
+    await click('button');
+
+    // toggled to large image view
+    assert.dom('div.image').hasClass('large');
+    assert.dom('button').hasText('View Smaller');
+
+    await click('button');
+
+    // toggled back to initial state
+    assert.dom('div.image').doesNotHaveClass('large');
+    assert.dom('button').hasText('View Larger');
   });
 });
