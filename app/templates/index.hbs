@@ -4,8 +4,8 @@
   <LinkTo @route="about">About</LinkTo>
 </div>
 <ul class="games">
-  <li><VideoGame @game={{@model}} /></li>
-  <li><VideoGame @game={{@model}} /></li>
-  <li><VideoGame @game={{@model}} /></li>
+  {{#each @model as |game|}}
+  <li><VideoGame @game={{game}}/></li>
+  {{/each}}
 </ul>
 </TrivialLayout>
